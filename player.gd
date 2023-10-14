@@ -15,7 +15,7 @@ var is_climbing = false
 var is_dead = false
 
 func _ready():
-	set_evolution("monkey")
+	set_evolution("snail")
 	enable_current_evolution()
 
 func _physics_process(delta):
