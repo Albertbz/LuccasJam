@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ek2vrn02vq3y"]
+[gd_scene load_steps=8 format=3 uid="uid://ek2vrn02vq3y"]
 
 [ext_resource type="PackedScene" uid="uid://bjgwu6w7783mq" path="res://monkey.tscn" id="1_qdw6r"]
 [ext_resource type="Texture2D" uid="uid://bgcnu0tuadmbe" path="res://art/tilesheet_complete.png" id="2_nmdfi"]
 [ext_resource type="PackedScene" uid="uid://d3gomowjkswa0" path="res://blow_dart_blower.tscn" id="3_ohend"]
+[ext_resource type="PackedScene" uid="uid://b2wh1adic0ijr" path="res://spike.tscn" id="4_y8nxg"]
+[ext_resource type="PackedScene" uid="uid://dlovwg4o18ie4" path="res://dragon.tscn" id="5_h5485"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa7tv"]
 texture = ExtResource("2_nmdfi")
@@ -819,7 +821,8 @@ sources/0 = SubResource("TileSetAtlasSource_qa7tv")
 position = Vector2(903, -43)
 
 [node name="Player" parent="Node2D" instance=ExtResource("1_qdw6r")]
-position = Vector2(-903, 43)
+position = Vector2(-903, -2)
+scale = Vector2(2, 2)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_sopnf")
@@ -827,4 +830,12 @@ format = 2
 layer_0/tile_data = PackedInt32Array(65534, 131072, 0, 65535, 131072, 0, 0, 131072, 0, 1, 131072, 0, 2, 327680, 2, 3, 393216, 2, 4, 327680, 2, 5, 393216, 2, 6, 327680, 2, 7, 393216, 2, 8, 327680, 2, 9, 393216, 2, 10, 327680, 2, 11, 393216, 2, 12, 327680, 2, 13, 393216, 2, 65532, 327680, 2, 65533, 393216, 2, 65530, 327680, 2, 65531, 393216, 2, 65528, 327680, 2, 65529, 393216, 2, 65526, 327680, 2, 65527, 393216, 2, 65524, 327680, 2, 65525, 393216, 2, 14, 327680, 2, 15, 393216, 2, 16, 327680, 2, 17, 393216, 2)
 
 [node name="BlowDartBlower" parent="." instance=ExtResource("3_ohend")]
-position = Vector2(896, -42)
+position = Vector2(896, -235)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Area2D" parent="." instance=ExtResource("4_y8nxg")]
+position = Vector2(-718, -44)
+
+[node name="Dragon" parent="." instance=ExtResource("5_h5485")]
+position = Vector2(876, -31)
