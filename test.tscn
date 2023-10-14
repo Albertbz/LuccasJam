@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ek2vrn02vq3y"]
+[gd_scene load_steps=7 format=3 uid="uid://ek2vrn02vq3y"]
 
 [ext_resource type="PackedScene" uid="uid://bjgwu6w7783mq" path="res://monkey.tscn" id="1_qdw6r"]
 [ext_resource type="Texture2D" uid="uid://bgcnu0tuadmbe" path="res://art/tilesheet_complete.png" id="2_nmdfi"]
 [ext_resource type="PackedScene" uid="uid://d3gomowjkswa0" path="res://blow_dart_blower.tscn" id="3_ohend"]
+[ext_resource type="PackedScene" uid="uid://b2wh1adic0ijr" path="res://spike.tscn" id="4_y8nxg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa7tv"]
 texture = ExtResource("2_nmdfi")
@@ -828,3 +829,8 @@ layer_0/tile_data = PackedInt32Array(65534, 131072, 0, 65535, 131072, 0, 0, 1310
 
 [node name="BlowDartBlower" parent="." instance=ExtResource("3_ohend")]
 position = Vector2(896, -42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Area2D" parent="." instance=ExtResource("4_y8nxg")]
+position = Vector2(-455, -44)
