@@ -1,0 +1,80 @@
+[gd_scene load_steps=15 format=3 uid="uid://bc3lid153tq8w"]
+
+[ext_resource type="Script" path="res://checkpoint.gd" id="1_s8hpb"]
+[ext_resource type="Texture2D" uid="uid://b5jtug4s1os8m" path="res://art/checkpoint/checkpoint_active1.png" id="2_g14pg"]
+[ext_resource type="Texture2D" uid="uid://cvrdlngqhvlj0" path="res://art/checkpoint/checkpoint_active2.png" id="3_45tht"]
+[ext_resource type="Texture2D" uid="uid://cje5ap2xhs6ig" path="res://art/checkpoint/checkpoint_active3.png" id="4_gu1p4"]
+[ext_resource type="Texture2D" uid="uid://sp65r1ypk4m4" path="res://art/checkpoint/checkpoint_active4.png" id="5_ecwd6"]
+[ext_resource type="Texture2D" uid="uid://bxghb3ye11a5s" path="res://art/checkpoint/checkpoint_active5.png" id="6_dldj3"]
+[ext_resource type="Texture2D" uid="uid://bykrv03uidiuq" path="res://art/checkpoint/checkpoint_active6.png" id="7_wvsej"]
+[ext_resource type="Texture2D" uid="uid://b3qomu1vfpgsh" path="res://art/checkpoint/checkpoint_active7.png" id="8_x313l"]
+[ext_resource type="Texture2D" uid="uid://bvtfpntkrw5g3" path="res://art/checkpoint/checkpoint_active8.png" id="9_gthr6"]
+[ext_resource type="Texture2D" uid="uid://dfyg5sodtatew" path="res://art/checkpoint/checkpoint_active9.png" id="10_dskb3"]
+[ext_resource type="Texture2D" uid="uid://cy6upmx08g5so" path="res://art/checkpoint/checkpoint_active10.png" id="11_hoyqi"]
+[ext_resource type="Texture2D" uid="uid://doqig5ay0qtun" path="res://art/checkpoint/checkpoint_inactive.png" id="12_p04pa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8beoe"]
+size = Vector2(30, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xr3mf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g14pg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_45tht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gu1p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ecwd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dldj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wvsej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_x313l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gthr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dskb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hoyqi")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_p04pa")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource("1_s8hpb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_8beoe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_xr3mf")
+animation = &"active"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
