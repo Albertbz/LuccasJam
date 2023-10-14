@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bdb8d6vjbuql8" path="res://art/jungle/dragon.png" id="2_ttdgd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjjc5"]
-size = Vector2(44, 42)
+size = Vector2(66, 63)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bt17y"]
 animations = [{
@@ -32,17 +32,18 @@ script = ExtResource("1_b7dt1")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(4, 4)
+position = Vector2(9, 4.5)
 shape = SubResource("RectangleShape2D_jjjc5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-6, 3)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_bt17y")
 animation = &"Fire"
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

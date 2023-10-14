@@ -18,6 +18,7 @@ animations = [{
 script = ExtResource("1_cpwv6")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.2
 autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
