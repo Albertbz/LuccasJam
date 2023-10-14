@@ -1,7 +1,6 @@
-extends Area2D
+extends StaticBody2D
 
-
-func _on_body_entered(body):
+func _on_death_zone_body_entered(body):
 	if body.name == "Player":
 		var main = body.get_parent()
 		main.kill_player()
