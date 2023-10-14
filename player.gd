@@ -10,10 +10,10 @@ var current_anim_sprite
 var current_coll_shape
 var can_jump
 var can_climb
-var is_climbing
+var is_climbing = false
 
 func _ready():
-	set_evolution("snail")
+	set_evolution("monkey")
 	enable_current_evolution()
 
 func _physics_process(delta):
@@ -25,12 +25,17 @@ func _physics_process(delta):
 	if can_jump and Input.is_action_pressed("move_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	if can_climb and Input.is_action_pressed("move_up") and is_in_trunk():
-		velocity.y = -SPEED
+	if can_climb and is_in_trunk():
 		is_climbing = true
-	else:
-		velocity.y = 0
+		if Input.is_action_pressed("move_up"):
+			velocity.y = -SPEED
+		elif Input.is_action_pressed("move_down"):
+			velocity.y = SPEED
+		else:
+			velocity.y = 0
+	elif can_climb and not is_in_trunk():
 		is_climbing = false
+	
 	
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("move_left", "move_right")
