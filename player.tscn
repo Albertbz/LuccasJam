@@ -1,0 +1,169 @@
+[gd_scene load_steps=25 format=3 uid="uid://b1m5rouw1y2da"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_ucb4g"]
+[ext_resource type="Texture2D" uid="uid://bm43ghvopusjl" path="res://art/monkey/monkey_idle0.png" id="2_5tc4q"]
+[ext_resource type="Texture2D" uid="uid://ucb1axdmxgdp" path="res://art/monkey/monkey_fall.png" id="2_448sm"]
+[ext_resource type="Texture2D" uid="uid://cr7tjk1l4amcc" path="res://art/monkey/monkey_idle1.png" id="3_cvsnd"]
+[ext_resource type="Texture2D" uid="uid://p1t3jvn7l6tx" path="res://art/monkey/monkey_walk0.png" id="4_tyicj"]
+[ext_resource type="Texture2D" uid="uid://dwl6gj5vcpn44" path="res://art/monkey/monkey_jump.png" id="5_017hs"]
+[ext_resource type="Texture2D" uid="uid://b1cnfn4n0o46o" path="res://art/monkey/monkey_suicide0.png" id="5_e5c0j"]
+[ext_resource type="Texture2D" uid="uid://1ve5pivg0ocn" path="res://art/monkey/monkey_walk1.png" id="5_ww3lf"]
+[ext_resource type="Texture2D" uid="uid://4k8wdr4ky6nh" path="res://art/monkey/monkey_suicide1.png" id="6_7lex4"]
+[ext_resource type="Texture2D" uid="uid://dwkttghkii1y5" path="res://art/snail/snail_idle0.png" id="10_dxbv6"]
+[ext_resource type="Texture2D" uid="uid://bduu0ny7fow34" path="res://art/snail/snail_fall.png" id="10_efr60"]
+[ext_resource type="Texture2D" uid="uid://c0jbrup0xsbg2" path="res://art/snail/snail_idle1.png" id="11_mokpw"]
+[ext_resource type="Texture2D" uid="uid://l2jaslactx5e" path="res://art/snail/snail_suicide3.png" id="12_lkdyf"]
+[ext_resource type="Texture2D" uid="uid://s35mutjal27x" path="res://art/snail/snail_suicide2.png" id="13_kud7b"]
+[ext_resource type="Texture2D" uid="uid://xox6606mwkb1" path="res://art/snail/snail_suicide1.png" id="14_mjo35"]
+[ext_resource type="Texture2D" uid="uid://be8nk4pohv48k" path="res://art/snail/snail_suicide0.png" id="15_he206"]
+[ext_resource type="Texture2D" uid="uid://qk5nogh7inle" path="res://art/snail/snail_walk0.png" id="16_75ixj"]
+[ext_resource type="Texture2D" uid="uid://dmv1cvqrh88pd" path="res://art/snail/snail_walk1.png" id="17_fvo47"]
+[ext_resource type="Texture2D" uid="uid://7hq3b1621nbr" path="res://art/snail/snail_climb0.png" id="17_n0arv"]
+[ext_resource type="Texture2D" uid="uid://ojtesjub7qoc" path="res://art/snail/snail_climb1.png" id="18_tghkj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qi17o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_448sm")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5tc4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cvsnd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_e5c0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7lex4")
+}],
+"loop": true,
+"name": &"suicide",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_017hs")
+}],
+"loop": true,
+"name": &"up",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tyicj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ww3lf")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fo3ch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_efr60")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_dxbv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mokpw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_lkdyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kud7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mjo35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_he206")
+}],
+"loop": true,
+"name": &"suicide",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_n0arv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tghkj")
+}],
+"loop": true,
+"name": &"up",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_75ixj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fvo47")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0rpl"]
+size = Vector2(21.3333, 26.6667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tagi4"]
+size = Vector2(22, 29)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_ucb4g")
+metadata/_edit_group_ = true
+
+[node name="MonkeyAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qi17o")
+animation = &"up"
+
+[node name="SnailAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_fo3ch")
+animation = &"up"
+
+[node name="MonkeyCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(4.76837e-07, 2.66667)
+shape = SubResource("RectangleShape2D_m0rpl")
+disabled = true
+
+[node name="SnailCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(4.76837e-07, 1.5)
+shape = SubResource("RectangleShape2D_tagi4")
