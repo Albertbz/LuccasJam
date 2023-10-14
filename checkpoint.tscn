@@ -62,7 +62,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Checkpoint" type="Node2D"]
+[node name="Checkpoint" type="Node2D" groups=["flags"]]
 script = ExtResource("1_s8hpb")
 
 [node name="Area2D" type="Area2D" parent="."]

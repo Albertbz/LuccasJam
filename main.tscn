@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b81junyx2rhbp"]
+[gd_scene load_steps=15 format=3 uid="uid://b81junyx2rhbp"]
 
 [ext_resource type="PackedScene" uid="uid://b1m5rouw1y2da" path="res://player.tscn" id="1_dcr0v"]
 [ext_resource type="Script" path="res://main.gd" id="1_lvpjj"]
@@ -7,9 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://csei6cy31uiph" path="res://art/jungle/background.png" id="3_eqj1n"]
 [ext_resource type="PackedScene" uid="uid://dlovwg4o18ie4" path="res://dragon.tscn" id="4_10kus"]
 [ext_resource type="PackedScene" uid="uid://d3gomowjkswa0" path="res://blow_dart_blower.tscn" id="5_yhsul"]
-[ext_resource type="PackedScene" path="res://spike.tscn" id="6_bd7ji"]
+[ext_resource type="PackedScene" uid="uid://b2wh1adic0ijr" path="res://spike.tscn" id="6_bd7ji"]
 [ext_resource type="PackedScene" path="res://snake.tscn" id="7_ob3eh"]
 [ext_resource type="PackedScene" uid="uid://bgyadjtmdxpoi" path="res://death_screen.tscn" id="8_nucv3"]
+[ext_resource type="PackedScene" uid="uid://bc3lid153tq8w" path="res://checkpoint.tscn" id="11_5q6t3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mu33"]
 texture = ExtResource("1_u6wy1")
@@ -233,3 +234,9 @@ position = Vector2(6209, -3248)
 scale = Vector2(3, 3)
 
 [node name="DeathScreen" parent="." instance=ExtResource("8_nucv3")]
+
+[node name="Checkpoint" parent="." instance=ExtResource("11_5q6t3")]
+position = Vector2(4596, -688)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("11_5q6t3")]
+position = Vector2(3885, -1712)

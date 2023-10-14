@@ -105,7 +105,7 @@ func update_evolution(karma):
 	enable_current_evolution()
 	
 func kill():
-	position = Vector2(0, -32)
+	position = Vector2(0,-32)
 	hide()
 	is_dead = true
 	
