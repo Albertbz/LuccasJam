@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlovwg4o18ie4"]
+
+[ext_resource type="Script" path="res://dragon.gd" id="1_b7dt1"]
+[ext_resource type="Texture2D" uid="uid://tg5g1owrth5y" path="res://art/jungle/dragon_fire.png" id="1_fthsf"]
+[ext_resource type="Texture2D" uid="uid://bdb8d6vjbuql8" path="res://art/jungle/dragon.png" id="2_ttdgd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjjc5"]
+size = Vector2(44, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bt17y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fthsf")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ttdgd")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Dragon" type="Node2D"]
+script = ExtResource("1_b7dt1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_jjjc5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-6, 3)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_bt17y")
+animation = &"Fire"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
