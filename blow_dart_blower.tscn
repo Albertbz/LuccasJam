@@ -14,7 +14,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BlowDartBlower" type="Node2D"]
+[node name="BlowDartBlower" type="Node2D" groups=["projectile_generators"]]
 script = ExtResource("1_cpwv6")
 
 [node name="Timer" type="Timer" parent="."]

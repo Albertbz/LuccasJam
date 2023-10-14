@@ -12,8 +12,6 @@ func _ready():
 func _physics_process(delta):
 	
 	if player != null and chase:
-		print(player.position.x)
-		print(position.x)
 		var direction = sign(player.position.x - position.x)
 		if is_on_floor():
 			velocity.x = direction * speed
@@ -40,6 +38,5 @@ func _on_player_locator_body_exited(body):
 
 func _on_hurt_player_body_entered(body):
 	if body.name == "Player":
-		body.queue_free()
-		queue_free()
-		get_tree().change_scene_to_file("res://death_screen.tscn")
+		var main = body.get_parent()
+		main.kill_player()
