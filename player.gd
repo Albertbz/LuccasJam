@@ -62,10 +62,17 @@ func _physics_process(delta):
 	current_anim_sprite.play()
 
 	move_and_slide()
+	
+	if position.y > 600:
+		get_parent().kill_player()
 
 func enable_current_evolution():
 	current_anim_sprite.set_visible(true)
 	current_coll_shape.set_deferred("disabled", false)
+
+func disable_current_evolution():
+	current_anim_sprite.set_visible(false)
+	current_coll_shape.set_deferred("disabled", true)
 
 func set_evolution(new_evolution):
 	match new_evolution:
@@ -90,6 +97,7 @@ func is_in_climbable_tile():
 	return res
 
 func update_evolution(karma):
+	disable_current_evolution()
 	if karma >= 0:
 		set_evolution("monkey")
 	elif karma < 0:
