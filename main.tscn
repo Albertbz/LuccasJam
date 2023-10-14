@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b81junyx2rhbp"]
+[gd_scene load_steps=6 format=3 uid="uid://b81junyx2rhbp"]
 
-[ext_resource type="PackedScene" uid="uid://bjgwu6w7783mq" path="res://monkey.tscn" id="1_k51eq"]
+[ext_resource type="PackedScene" uid="uid://b1m5rouw1y2da" path="res://player.tscn" id="1_dcr0v"]
 [ext_resource type="Texture2D" uid="uid://c0dn7f66bxk5d" path="res://art/jungle/jungle_sheet.png" id="2_rr3gc"]
+[ext_resource type="Texture2D" uid="uid://csei6cy31uiph" path="res://art/jungle/background.png" id="3_eqj1n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6m62d"]
 texture = ExtResource("2_rr3gc")
@@ -105,10 +106,28 @@ tile_proxies/coords_level = [[2, Vector2i(0, 0)], [8, Vector2i(0, 0)], [3, Vecto
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
+scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_5rook")
 format = 2
 layer_0/tile_data = PackedInt32Array(65534, 262160, 65536, 65535, 196624, 0, 0, 196624, 0, 1, 196624, 0, 2, 196624, 0, 3, 196624, 0, 4, 196624, 0, 5, 262160, 0, -65533, 327696, 0, -131069, 327696, 0, -262142, 131088, 0, -262143, 16, 0, -262144, 65552, 0, -327677, 327696, 0, -393213, 327696, 0, -458749, 327696, 0, -524285, 327696, 0, -196604, 131088, 65536, -196603, 65552, 65536, -262141, 458768, 0, -196605, 524304, 0, -262133, 16, 65536, 65547, 196624, 0, 65543, 262160, 65536, 65544, 196624, 0, -524279, 327696, 0, -458743, 327696, 0, -393207, 327696, 0, -327671, 327696, 0, -262135, 524304, 0, -196599, 327696, 0, -65527, 327696, 0, 9, 327696, 0, 65545, 196624, 0, -262134, 131088, 65536, 65546, 196624, 0, -262132, 65552, 65536, 65548, 262160, 0, 14, 262160, 65536, 15, 196624, 0, 16, 262160, 0, -65518, 262160, 65536, -65517, 196624, 0, -65516, 262160, 0, -131049, 196624, 0, -131048, 196624, 0, -131047, 196624, 0, -131046, 196624, 0, -131045, 196624, 0, -131044, 196624, 0, -131043, 196624, 0, -131042, 262160, 0, -131050, 262160, 65536, -196584, 327696, 0, -262120, 327696, 0, -327656, 458768, 0, -393192, 524304, 0, -131063, 393232, 0, -131064, 131088, 0, -131065, 65552, 0, -131062, 131088, 65536, -131061, 65552, 65536, -327658, 16, 0, -327659, 16, 0, -327660, 65552, 0, -393191, 131088, 65536, -393190, 65552, 65536, -458728, 327696, 0, -524264, 393232, 0, -524263, 131088, 65536, -524262, 16, 65536, -524261, 65552, 65536, -327657, 131088, 0, -524265, 131088, 0, -524266, 65552, 0, -196580, 327696, 0, -262116, 393232, 0, -262117, 131088, 0, -262118, 16, 0, -262119, 65552, 0, -262115, 131088, 65536, -262114, 65552, 65536, -327652, 327696, 0, -393188, 524304, 0, -458724, 458768, 0, -393187, 131088, 65536, -393186, 16, 65536, -393185, 65552, 65536, -458725, 131088, 0, -458726, 65552, 0, -524260, 327696, 0, -589796, 327696, 0, -589800, 327696, 0)
 
-[node name="Monkey" parent="." instance=ExtResource("1_k51eq")]
-position = Vector2(1, -32)
+[node name="Player" parent="." instance=ExtResource("1_dcr0v")]
+position = Vector2(0, -32)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="TextureRect" type="TextureRect" parent="Player/Camera2D"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -162.0
+offset_right = -144.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("3_eqj1n")
