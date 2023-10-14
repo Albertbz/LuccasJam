@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dlovwg4o18ie4"]
 
 [ext_resource type="Script" path="res://dragon.gd" id="1_b7dt1"]
-[ext_resource type="Texture2D" uid="uid://tg5g1owrth5y" path="res://art/jungle/dragon_fire.png" id="1_fthsf"]
-[ext_resource type="Texture2D" uid="uid://bdb8d6vjbuql8" path="res://art/jungle/dragon.png" id="2_ttdgd"]
+[ext_resource type="Texture2D" uid="uid://bjbivtx6o8j5a" path="res://art/jungle/dragon_fire.png" id="1_fthsf"]
+[ext_resource type="Texture2D" uid="uid://d07poug3v6a66" path="res://art/jungle/dragon.png" id="2_ttdgd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjjc5"]
 size = Vector2(66, 63)
@@ -26,7 +26,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Dragon" type="Node2D"]
+[node name="Dragon" type="Node2D" groups=["projectile_generators"]]
 script = ExtResource("1_b7dt1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

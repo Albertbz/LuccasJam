@@ -6,6 +6,8 @@ var direction
 var anim
 var fireing = false
 
+var is_paused = false
+
 func _ready():
 	anim = get_node("AnimatedSprite2D") 
 	if anim.flip_h:
@@ -19,6 +21,9 @@ func _process(delta):
 
 
 func _on_timer_timeout():
+	if is_paused:
+		return
+	
 	fireing = true
 	$AnimatedSprite2D.play("Fire")
 	var newFireball = Fireball.instantiate()
@@ -29,3 +34,9 @@ func _on_timer_timeout():
 	await get_tree().create_timer(0.3).timeout
 	
 	fireing = false
+	
+func pause():
+	is_paused = true
+
+func un_pause():
+	is_paused = false
