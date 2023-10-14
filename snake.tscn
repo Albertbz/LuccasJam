@@ -1,0 +1,87 @@
+[gd_scene load_steps=15 format=3 uid="uid://cnbjfwoo040p7"]
+
+[ext_resource type="Script" path="res://snake.gd" id="1_edmf2"]
+[ext_resource type="Texture2D" uid="uid://bt0jtoepkywb6" path="res://art/mobs/snake_bite0.png" id="2_i4qpk"]
+[ext_resource type="Texture2D" uid="uid://c4jtn072m4gx6" path="res://art/mobs/snake_bite1.png" id="3_gauiq"]
+[ext_resource type="Texture2D" uid="uid://s36wlp0dfacp" path="res://art/mobs/snake_bite2.png" id="4_5cimc"]
+[ext_resource type="Texture2D" uid="uid://exs5pgl7dl12" path="res://art/mobs/snake_bite3.png" id="5_168vd"]
+[ext_resource type="Texture2D" uid="uid://bfac0gda7ab6e" path="res://art/mobs/snake_bite4.png" id="6_p2oqy"]
+[ext_resource type="Texture2D" uid="uid://0itxjdytoalm" path="res://art/mobs/snake_bite5.png" id="7_1oekr"]
+[ext_resource type="Texture2D" uid="uid://7hyma77mwp3j" path="res://art/mobs/snake_idle0.png" id="8_vfmtk"]
+[ext_resource type="Texture2D" uid="uid://b7jt7a7g3m3vf" path="res://art/mobs/snake_idle1.png" id="9_jxq7p"]
+[ext_resource type="Texture2D" uid="uid://dqs4rl44axs2k" path="res://art/mobs/snake_idle2.png" id="10_mmig6"]
+[ext_resource type="Texture2D" uid="uid://cu3vd8o2i2oh1" path="res://art/mobs/snake_idle3.png" id="11_amp4v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2cgki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i4qpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gauiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5cimc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_168vd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_p2oqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1oekr")
+}],
+"loop": true,
+"name": &"bite",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_vfmtk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jxq7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mmig6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_amp4v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ummoj"]
+radius = 203.002
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm0mb"]
+
+[node name="Snake" type="CharacterBody2D"]
+script = ExtResource("1_edmf2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-13, 16, 13, 16, 13, 12, 12, 12, 12, 11, 13, 11, 13, 10, 14, 10, 14, 5, 13, 5, 13, 4, 12, 4, 12, 5, 11, 5, 11, 10, 10, 10, 10, 11, 9, 11, 9, 12, 8, 12, 8, 8, 4, 8, 4, -1, 5, -1, 5, -8, 3, -8, 3, -7, 1, -7, 1, -8, -1, -8, -1, -1, 0, -1, 0, 8, -9, 8, -9, 12, -13, 12)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_2cgki")
+animation = &"bite"
+
+[node name="Player locator" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player locator"]
+shape = SubResource("CircleShape2D_ummoj")
+
+[node name="Hurt player" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt player"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_vm0mb")
+
+[connection signal="body_entered" from="Player locator" to="." method="_on_player_locator_body_entered"]
+[connection signal="body_exited" from="Player locator" to="." method="_on_player_locator_body_exited"]
+[connection signal="body_entered" from="Hurt player" to="." method="_on_hurt_player_body_entered"]
