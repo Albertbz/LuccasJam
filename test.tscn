@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ek2vrn02vq3y"]
+[gd_scene load_steps=9 format=3 uid="uid://ek2vrn02vq3y"]
 
 [ext_resource type="PackedScene" uid="uid://bjgwu6w7783mq" path="res://monkey.tscn" id="1_qdw6r"]
 [ext_resource type="Texture2D" uid="uid://bgcnu0tuadmbe" path="res://art/tilesheet_complete.png" id="2_nmdfi"]
 [ext_resource type="PackedScene" uid="uid://d3gomowjkswa0" path="res://blow_dart_blower.tscn" id="3_ohend"]
 [ext_resource type="PackedScene" uid="uid://b2wh1adic0ijr" path="res://spike.tscn" id="4_y8nxg"]
 [ext_resource type="PackedScene" uid="uid://dlovwg4o18ie4" path="res://dragon.tscn" id="5_h5485"]
+[ext_resource type="Texture2D" uid="uid://d32yghvvwhhrw" path="res://art/jungle/background.png" id="6_dgo6g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa7tv"]
 texture = ExtResource("2_nmdfi")
@@ -839,3 +840,15 @@ position = Vector2(-718, -44)
 
 [node name="Dragon" parent="." instance=ExtResource("5_h5485")]
 position = Vector2(876, -31)
+
+[node name="Dragon2" parent="." instance=ExtResource("5_h5485")]
+position = Vector2(-620, -35)
+rotation = 6.28319
+scale = Vector2(-1, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(167, -237)
+scale = Vector2(15, 15)
+texture = ExtResource("6_dgo6g")
