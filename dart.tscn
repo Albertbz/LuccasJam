@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://can2ggogugstr"]
+[gd_scene load_steps=3 format=3 uid="uid://d04oe7jwsrc6h"]
 
 [ext_resource type="Script" path="res://dart.gd" id="1_epdpb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6du8k"]
 size = Vector2(38, 8)
 
-[node name="Dart" type="Area2D"]
+[node name="Dart" type="Area2D" groups=["projectiles"]]
 script = ExtResource("1_epdpb")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]

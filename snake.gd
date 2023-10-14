@@ -12,8 +12,6 @@ func _ready():
 func _physics_process(delta):
 	
 	if player != null and chase:
-		print(player.position.x)
-		print(position.x)
 		var direction = sign(player.position.x - position.x)
 		if is_on_floor():
 			velocity.x = direction * speed
