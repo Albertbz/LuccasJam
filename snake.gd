@@ -40,6 +40,5 @@ func _on_player_locator_body_exited(body):
 
 func _on_hurt_player_body_entered(body):
 	if body.name == "Player":
-		body.queue_free()
-		queue_free()
-		get_tree().change_scene_to_file("res://death_screen.tscn")
+		var main = body.get_parent()
+		main.kill_player()
