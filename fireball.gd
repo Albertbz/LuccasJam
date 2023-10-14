@@ -6,8 +6,9 @@ var speed = 200
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		print("Player hit!")
+		body.queue_free()
 		queue_free()
+		get_tree().change_scene_to_file("res://death_screen.tscn")
 	elif body.get_parent().name != get_parent().name:
 		queue_free()
 

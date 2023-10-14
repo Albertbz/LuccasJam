@@ -13,7 +13,7 @@ var can_climb
 var is_climbing = false
 
 func _ready():
-	set_evolution("snail")
+	set_evolution("monkey")
 	enable_current_evolution()
 
 func _physics_process(delta):
