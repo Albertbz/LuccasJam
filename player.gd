@@ -25,7 +25,7 @@ func _physics_process(delta):
 	if can_jump and Input.is_action_pressed("move_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	if can_climb and is_in_trunk():
+	if can_climb and is_in_climbable():
 		is_climbing = true
 		if Input.is_action_pressed("move_up"):
 			velocity.y = -SPEED
@@ -33,7 +33,7 @@ func _physics_process(delta):
 			velocity.y = SPEED
 		else:
 			velocity.y = 0
-	elif can_climb and not is_in_trunk():
+	elif can_climb and not is_in_climbable():
 		is_climbing = false
 	
 	
@@ -75,12 +75,11 @@ func set_evolution(new_evolution):
 			can_jump = false
 			can_climb = true
 
-func is_in_trunk():
-	var is_in_trunk = false
+func is_in_climbable():
+	var res = false
 	var tilemap = get_parent().get_node("TileMap")
-	if not tilemap == null:
-		var coords = tilemap.get_cell_atlas_coords(0, position)
-		
-			
-	return is_in_trunk
-	
+	var coords = (position / 128).floor()
+	var tile_data = tilemap.get_cell_tile_data(0, coords)
+	if tile_data:
+		res = tile_data.get_custom_data("climbable")
+	return res
