@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://fiptayksrfus"]
+[gd_scene load_steps=2 format=3 uid="uid://bgyadjtmdxpoi"]
 
 [ext_resource type="Script" path="res://DeathScreen.gd" id="1_tmkyl"]
 
@@ -6,18 +6,27 @@
 script = ExtResource("1_tmkyl")
 
 [node name="You died" type="Label" parent="."]
-offset_left = 400.0
-offset_top = 150.0
-offset_right = 830.0
-offset_bottom = 290.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -140.0
+offset_right = 215.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_font_sizes/font_size = 100
 text = "You Died"
 
 [node name="Get reborn" type="Button" parent="."]
-offset_left = 475.0
-offset_top = 350.0
-offset_right = 775.0
-offset_bottom = 450.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 text = "Get reborn"
 

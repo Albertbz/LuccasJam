@@ -9,9 +9,9 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		body.queue_free()
+		var main = body.get_parent()
+		main.kill_player()
 		queue_free()
-		get_tree().change_scene_to_file("res://death_screen.tscn")
 
 func _physics_process(delta):
 	var velocity = Vector2.ZERO
