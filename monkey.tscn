@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjgwu6w7783mq"]
+
+[ext_resource type="Script" path="res://monkey.gd" id="1_4b1c3"]
+[ext_resource type="Texture2D" uid="uid://cuwuwux44j7s2" path="res://art/monkey/monkey_fall.png" id="2_a8lsw"]
+[ext_resource type="Texture2D" uid="uid://edx8dh8kq11c" path="res://art/monkey/monkey_idle0.png" id="3_jvdai"]
+[ext_resource type="Texture2D" uid="uid://d1376p3aos4io" path="res://art/monkey/monkey_idle1.png" id="4_uasbj"]
+[ext_resource type="Texture2D" uid="uid://b6mtq8iqr13bg" path="res://art/monkey/monkey_jump.png" id="5_ar07p"]
+[ext_resource type="Texture2D" uid="uid://dhgjvdkj74uyf" path="res://art/monkey/monkey_suicide0.png" id="6_hcgum"]
+[ext_resource type="Texture2D" uid="uid://brev3e5mgcx3f" path="res://art/monkey/monkey_suicide1.png" id="7_6lsmv"]
+[ext_resource type="Texture2D" uid="uid://jtmh73pxdvi4" path="res://art/monkey/monkey_walk0.png" id="8_q7jpb"]
+[ext_resource type="Texture2D" uid="uid://ckmvu1h6rq8j6" path="res://art/monkey/monkey_walk1.png" id="9_s2hne"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qvoa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a8lsw")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jvdai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uasbj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ar07p")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_hcgum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6lsmv")
+}],
+"loop": true,
+"name": &"suicide",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_q7jpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_s2hne")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbxth"]
+size = Vector2(32, 28)
+
+[node name="Monkey" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_4b1c3")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_8qvoa")
+animation = &"fall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_cbxth")
+
+[node name="Camera2D" type="Camera2D" parent="."]
