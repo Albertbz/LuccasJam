@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://can2ggogugstr"]
+
+[ext_resource type="Script" path="res://dart.gd" id="1_epdpb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6du8k"]
+size = Vector2(19, 4)
+
+[node name="Dart" type="Area2D"]
+script = ExtResource("1_epdpb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_6du8k")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(6, 0)
+color = Color(0.313726, 0.239216, 0, 1)
+polygon = PackedVector2Array(-15, -1, -7, -3, 4, -3, 4, 1, -7, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
