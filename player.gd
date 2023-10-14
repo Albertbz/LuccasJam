@@ -13,7 +13,7 @@ var can_climb
 var is_climbing = false
 
 func _ready():
-	set_evolution("monkey")
+	set_evolution("snail")
 	enable_current_evolution()
 
 func _physics_process(delta):
@@ -60,7 +60,7 @@ func _physics_process(delta):
 
 func enable_current_evolution():
 	current_anim_sprite.set_visible(true)
-	current_coll_shape.set_disabled(false)
+	current_coll_shape.set_deferred("disabled", false)
 
 func set_evolution(new_evolution):
 	match new_evolution:
@@ -76,4 +76,11 @@ func set_evolution(new_evolution):
 			can_climb = true
 
 func is_in_trunk():
-	return true
+	var is_in_trunk = false
+	var tilemap = get_parent().get_node("TileMap")
+	if not tilemap == null:
+		var coords = tilemap.get_cell_atlas_coords(0, position)
+		
+			
+	return is_in_trunk
+	
